@@ -1,5 +1,11 @@
 manuf.py
 ===
+Ke's Update
+
+The old manuf looks broken, please set it from source with recent data.
+
+
+===
 
 [![Build Status](https://travis-ci.org/coolbho3k/manuf.svg?branch=master)](https://travis-ci.org/coolbho3k/manuf)
 
