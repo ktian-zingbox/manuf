@@ -4,8 +4,9 @@ manuf.py
 
 The old manuf looks broken, please set it from source with recent data.
 
-- [x] python3
-- []  python2
+:heavy_check_mark:  python3
+
+:x:  python2
 
 ```
 $ git clone https://github.com/ktian-zingbox/manuf.git
