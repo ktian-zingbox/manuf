@@ -24,12 +24,10 @@ import re
 import sys
 import io
 
-try:
-    from urllib2 import urlopen
-    from urllib2 import URLError
-except ImportError:
-    from urllib.request import urlopen
-    from urllib.error import URLError
+
+from urllib.request import urlopen
+from urllib.error import URLError
+from urllib.request import Request
 
 try:
     from StringIO import StringIO
@@ -59,8 +57,8 @@ class MacParser(object):
         IOError: If manuf file could not be found.
 
     """
-    MANUF_URL = "https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf"
-    WFA_URL = "https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=wka"                                                                                           
+    MANUF_URL = "https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf;hb=HEAD"
+    WFA_URL = "https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=wka"
 
     def  __init__(self, manuf_name=None, update=False):
         self._manuf_name = manuf_name or self.get_packaged_manuf_file_path()
@@ -139,7 +137,8 @@ class MacParser(object):
 
         # Retrieve the new database
         try:
-            response = urlopen(manuf_url)
+            res = Request(manuf_url, headers={"User-Agent": "Mozilla/5.0"})
+            response = urlopen(res)
         except URLError:
             raise URLError("Failed downloading OUI database")
 
