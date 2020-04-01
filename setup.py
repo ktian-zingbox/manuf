@@ -3,10 +3,10 @@ from setuptools import setup
 setup(
     name = 'manuf',
     packages = ['manuf'],
-    version = '1.0.0',
+    version = '2.0.1',
     description = 'Parser library for Wireshark\'s OUI database',
-    author = 'Michael Huang',
-    url = 'https://github.com/coolbho3k/manuf/',
+    author = 'Ke Tian',
+    url = 'https://github.com/ktian-zingbox/manuf/',
     license = 'Apache License 2.0 or GPLv3',
     keywords = ['manuf', 'mac address', 'networking'],
     entry_points = {
